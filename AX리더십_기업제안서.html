@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AX 리더십 과정 기업 제안서 — Grepp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;600&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F5F2ED;
+  --bg2: #EDEAE3;
+  --white: #FFFFFF;
+  --ink: #141210;
+  --ink2: #352F28;
+  --ink3: #6B6159;
+  --ink4: #A8A09A;
+  --line: #DDD8CF;
+  --purple: #3A2DCC;
+  --purple-m: #6A5EE8;
+  --purple-l: #ECEAFF;
+  --teal: #0B7A5E;
+  --teal-l: #E0F3EE;
+  --amber: #B85000;
+  --amber-l: #FEF0E4;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  position: relative;
+  overflow: hidden;
+}
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-glow {
+  position: absolute;
+  bottom: -120px; right: -120px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(58,45,204,0.25) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-glow2 {
+  position: absolute;
+  top: 100px; left: -80px;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(11,122,94,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 64px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.hero-logo {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+.hero-nav-label {
+  font-size: 12px;
+  color: #666;
+  letter-spacing: 0.06em;
+}
+.hero-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 64px;
+  max-width: 900px;
+}
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--purple-m);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--purple-m); }
+.hero-h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(36px, 5.5vw, 68px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin-bottom: 28px;
+}
+.hero-h1 .accent { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.35); }
+.hero-desc {
+  font-size: 17px;
+  color: #888;
+  max-width: 520px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 36px;
+}
+.h-pill {
+  padding: 7px 16px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.h-pill-purple { background: rgba(58,45,204,0.25); color: #9A90FF; border: 1px solid rgba(58,45,204,0.4); }
+.h-pill-outline { border: 1px solid #2A2A2A; color: #666; }
+.hero-footer {
+  position: relative;
+  z-index: 2;
+  padding: 28px 64px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.hf-stat { padding: 12px 20px; border-right: 1px solid rgba(255,255,255,0.06); }
+.hf-stat:first-child { padding-left: 0; }
+.hf-stat:last-child { border-right: none; }
+.hf-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 24px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.hf-label { font-size: 11px; color: #555; letter-spacing: 0.04em; }
+
+/* ── SHARED ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 56px; }
+.section { padding: 72px 0 0; }
+.s-header { margin-bottom: 36px; }
+.s-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.s-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--line); }
+.s-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+/* ── PAIN SECTION ── */
+.pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pain-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px 30px;
+  transition: box-shadow 0.25s;
+}
+.pain-card:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.06); }
+.pain-card.wide { grid-column: 1 / -1; background: var(--ink); color: #fff; }
+.pain-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink4); margin-bottom: 12px; }
+.pain-card.wide .pain-num { color: #555; }
+.pain-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+.pain-desc { font-size: 13px; color: var(--ink3); line-height: 1.7; }
+.pain-card.wide .pain-desc { color: #888; }
+.pain-card.wide .pain-title { color: #fff; font-size: 18px; }
+
+/* ── DIFF STRIP ── */
+.diff-strip {
+  background: var(--purple);
+  border-radius: 20px;
+  padding: 40px 48px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.diff-strip::before {
+  content: '';
+  position: absolute;
+  right: -60px; top: -60px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.diff-strip-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 24px;
+}
+.diff-strip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; position: relative; }
+.diff-strip-item {}
+.diff-strip-idx {
+  font-family: 'DM Mono', monospace;
+  font-size: 28px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.15);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.diff-strip-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+.diff-strip-desc { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+/* ── PROCESS ── */
+.process-grid { display: grid; grid-template-columns: 1fr 48px 1fr 48px 1fr; align-items: start; }
+.proc-card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.proc-head { padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; }
+.proc-step { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: rgba(255,255,255,0.7); }
+.proc-body { padding: 22px; }
+.proc-title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.proc-meta { font-size: 12px; color: var(--ink4); margin-bottom: 18px; }
+.proc-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.proc-items li {
+  font-size: 13px; color: var(--ink2); padding-left: 16px;
+  position: relative; line-height: 1.55;
+}
+.proc-items li::before { content: '—'; position: absolute; left: 0; color: var(--ink4); font-size: 10px; top: 2px; }
+.proc-highlight {
+  background: var(--purple-l);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--purple);
+  line-height: 1.5;
+  margin-top: 14px;
+}
+.proc-arrow {
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 52px;
+  color: var(--ink4); font-size: 18px;
+}
+
+/* ── CURRICULUM ── */
+.curri-list { display: flex; flex-direction: column; gap: 2px; }
+.curri-item {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.curri-item:hover { transform: translateX(4px); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+.curri-item.highlight { border-color: var(--purple); border-width: 1.5px; }
+.curri-num {
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 500; color: #fff;
+}
+.curri-content { padding: 18px 22px; }
+.curri-title { font-size: 14px; font-weight: 600; margin-bottom: 5px; color: var(--ink); }
+.curri-desc { font-size: 13px; color: var(--ink3); line-height: 1.6; }
+.curri-side { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; padding: 14px 18px; gap: 6px; }
+.c-time { font-family: 'DM Mono', monospace; font-size: 12px; background: var(--ink); color: #fff; padding: 4px 10px; border-radius: 6px; }
+.c-type { font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 6px; }
+
+/* ── LEVELS ── */
+.levels-wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.lvl {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+.lvl:hover { transform: translateY(-3px); }
+.lvl-top { padding: 16px 18px 14px; position: relative; }
+.lvl-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 26px; font-weight: 500; color: #fff; line-height: 1; margin-bottom: 2px;
+}
+.lvl-name { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.75); }
+.lvl-bar-bg { height: 3px; background: var(--bg2); }
+.lvl-bar-fill { height: 100%; }
+.lvl-body { padding: 16px 18px; }
+.lvl-who { font-size: 11px; color: var(--ink4); font-style: italic; margin-bottom: 10px; }
+.lvl-desc { font-size: 12px; color: var(--ink2); line-height: 1.65; margin-bottom: 12px; }
+.lvl-goal-lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink4); margin-bottom: 4px; }
+.lvl-goal { font-size: 12px; font-weight: 500; color: var(--ink); line-height: 1.5; }
+
+/* ── PRICING ── */
+.price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.pc {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pc:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,0.08); }
+.pc.rec { border-color: var(--purple); border-width: 2px; }
+.pc-rec-tag {
+  position: absolute; top: 0; right: 20px;
+  background: var(--purple); color: #fff;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.06em;
+  padding: 5px 12px; border-radius: 0 0 10px 10px;
+}
+.pc-head { padding: 28px 26px 22px; }
+.pc-plan { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink4); margin-bottom: 10px; }
+.pc.rec .pc-plan { color: var(--purple); }
+.pc-price { font-family: 'DM Mono', monospace; font-size: 30px; font-weight: 500; color: var(--ink); line-height: 1; }
+.pc.rec .pc-price { color: var(--purple); }
+.pc-per { font-size: 13px; color: var(--ink4); margin-left: 4px; }
+.pc-body { padding: 20px 26px 24px; border-top: 1px solid var(--bg2); }
+.pc-items { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.pc-items li { font-size: 13px; color: var(--ink2); padding-left: 20px; position: relative; line-height: 1.5; }
+.pc-items li::before { content: '✓'; position: absolute; left: 0; font-size: 11px; font-weight: 700; color: var(--teal); }
+.pc-note { font-size: 11px; color: var(--ink4); padding: 14px 26px; border-top: 1px solid var(--bg2); text-align: center; }
+
+/* ── TIMELINE ── */
+.tl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.tl-col { padding: 0 12px; }
+.tl-col:first-child { padding-left: 0; }
+.tl-col:last-child { padding-right: 0; }
+.tl-top { text-align: center; margin-bottom: 24px; }
+.tl-wk {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; color: #fff;
+  margin: 0 auto 10px;
+}
+.tl-wk-label { font-size: 11px; color: var(--ink4); letter-spacing: 0.06em; margin-bottom: 4px; font-family: 'DM Mono', monospace; }
+.tl-wk-title { font-size: 14px; font-weight: 600; color: var(--ink); }
+.tl-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.tl-card-top { height: 3px; }
+.tl-card-body { padding: 16px; }
+.tl-task { font-size: 12px; color: var(--ink3); padding-left: 12px; position: relative; line-height: 1.5; margin-bottom: 7px; }
+.tl-task:last-child { margin-bottom: 0; }
+.tl-task::before { content: '·'; position: absolute; left: 2px; font-size: 14px; line-height: 1.2; color: var(--ink4); }
+
+/* ── CLOSING ── */
+.closing-wrap {
+  background: var(--ink);
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+.closing-top {
+  padding: 56px 56px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.closing-quote {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.closing-quote span { color: var(--purple-m); }
+.closing-source { font-size: 13px; color: #555; margin-top: 12px; font-style: italic; }
+.closing-points { display: flex; flex-direction: column; gap: 14px; }
+.closing-pt {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.closing-pt-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; flex-shrink: 0;
+}
+.closing-pt-text { font-size: 14px; color: #aaa; line-height: 1.6; }
+.closing-pt-text strong { color: #fff; font-weight: 500; }
+.closing-cta {
+  background: var(--purple);
+  padding: 28px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cta-text { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+.cta-sub { font-size: 13px; color: rgba(255,255,255,0.65); }
+.cta-contact {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  text-align: right;
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  padding: 28px 56px;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  margin-bottom: 40px;
+}
+.site-footer-l { font-size: 12px; color: var(--ink4); }
+.site-footer-r { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink4); letter-spacing: 0.06em; }
+
+/* ── ANIMATIONS ── */
+.fade { opacity: 0; transform: translateY(20px); animation: rise 0.55s ease both; }
+@keyframes rise { to { opacity: 1; transform: translateY(0); } }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+
+  <nav class="hero-nav">
+    <div class="hero-logo">GREPP</div>
+    <div class="hero-nav-label">교육사업본부 · 기업 제안서 2025</div>
+  </nav>
+
+  <div class="hero-body fade">
+    <div class="hero-eyebrow">AX Leadership Program</div>
+    <h1 class="hero-h1">측정하고,<br>배우고,<br><span class="accent">다시 측정한다</span></h1>
+    <p class="hero-desc">비개발 팀장·리더가 AI 전환을 직접 이끌 수 있도록 — 진단부터 성장 증명까지, Grepp만이 제공할 수 있는 완결형 AX 리더십 과정</p>
+    <div class="hero-pills">
+      <span class="h-pill h-pill-purple">Grepp AI 역량 진단 포함</span>
+      <span class="h-pill h-pill-outline">코딩 없음 · 비개발 대상</span>
+      <span class="h-pill h-pill-outline">반나절 완성 · 당일 결과물</span>
+    </div>
+  </div>
+
+  <div class="hero-footer fade delay-2">
+    <div class="hf-stat"><div class="hf-num">4h</div><div class="hf-label">워크숍 총 시간</div></div>
+    <div class="hf-stat"><div class="hf-num">60%</div><div class="hf-label">실습 비중</div></div>
+    <div class="hf-stat"><div class="hf-num">L1–L4</div><div class="hf-label">Grepp 역량 레벨</div></div>
+    <div class="hf-stat"><div class="hf-num">3-Step</div><div class="hf-label">진단→학습→증명</div></div>
+  </div>
+</section>
+
+<div style="background:var(--bg); padding-bottom: 48px;">
+<div class="container">
+
+  <!-- 1. 문제 -->
+  <section class="section">
+    <div class="s-header">
+      <div class="s-eyebrow">The Problem</div>
+      <div class="s-title">왜 지금, 이 과정이 필요한가</div>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-num">01</div>
+        <div class="pain-title">기대와 현실의 간극</div>
+        <div class="pain-desc">경영진은 AI 도입을 지시하지만 팀장들은 무엇을 어떻게 바꿔야 할지 모른다. 과대 기대와 막연한 두려움 사이에서 팀의 방향이 표류하고 있다.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">02</div>
+        <div class="pain-title">HR 예산은 있는데 쓸 곳이 없다</div>
+        <div class="pain-desc">연초 AI 역량 향상 목표가 주어졌지만 성과를 숫자로 증명할 수 있는 비개발 리더 대상 과정이 시장에 거의 없다.</div>
+      </div>
+      <div class="pain-card wide">
+        <div class="pain-num">03</div>
+        <div class="pain-title">비개발 리더를 위한 뾰족한 과정이 없다</div>
+        <div class="pain-desc">기존 AI 교육은 개발자 중심이거나, 비개발직군 대상이어도 "강의 듣고 설문지 쓰기"로 끝난다. ROI를 경영진에게 보고할 수 있는 교육 과정이 필요하다.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 차별점 -->
+  <section class="section">
+    <div class="s-header">
+      <div class="s-eyebrow">Why Grepp</div>
+      <div class="s-title">Grepp만 할 수 있는 이유</div>
+    </div>
+    <div class="diff-strip">
+      <div class="diff-strip-label">Three Core Advantages</div>
+      <div class="diff-strip-grid">
+        <div class="diff-strip-item">
+          <div class="diff-strip-idx">01</div>
+          <div class="diff-strip-title">AI 역량 진단 도구</div>
+          <div class="diff-strip-desc">PCCP로 쌓은 평가 노하우를 AI 역량 버전으로 확장. 타 기관은 진단 없이 강의만 제공한다.</div>
+        </div>
+        <div class="diff-strip-item">
+          <div class="diff-strip-idx">02</div>
+          <div class="diff-strip-title">교육 + 평가 + 채용 파이프라인</div>
+          <div class="diff-strip-desc">프로그래머스 플랫폼 기반. AI 역량 인증이 채용 지표로 직결되는 유일한 경로.</div>
+        </div>
+        <div class="diff-strip-item">
+          <div class="diff-strip-idx">03</div>
+          <div class="diff-strip-title">팀 단위 성장 리포트</div>
+          <div class="diff-strip-desc">"L2.1 → L3.4" 형태의 수치화된 성장 증거. HR의 경영진 보고 자료로 즉시 활용 가능.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 과정 구조 -->
+  <section class="section">
+    <div class="s-header">
+      <div class="s-eyebrow">Program Structure</div>
+      <div class="s-title">과정 전체 구조 — Measure · Learn · Prove</div>
+    </div>
+    <div class="process-grid">
+      <div class="proc-card">
+        <div class="proc-head" style="background:var(--purple);">
+          <span style="font-size:13px;font-weight:600;color:#fff;letter-spacing:0.08em;">MEASURE</span>
+          <span class="proc-step">STEP 1</span>
+        </div>
+        <div class="proc-body">
+          <div class="proc-title">사전 AI 역량 진단</div>
+          <div class="proc-meta">워크숍 1주 전 · 온라인 30분</div>
+          <ul class="proc-items">
+            <li>Grepp AI 역량 진단 시스템 응시</li>
+            <li>개인별 레벨 산출 (L1~L4)</li>
+            <li>취약 영역 자동 분석</li>
+            <li>강사에게 팀 현황 사전 공유</li>
+          </ul>
+          <div class="proc-highlight">워크숍 당일 진단 결과 기반으로 실습 트랙 자동 맞춤 편성</div>
+        </div>
+      </div>
+      <div class="proc-arrow">→</div>
+      <div class="proc-card">
+        <div class="proc-head" style="background:#141210;">
+          <span style="font-size:13px;font-weight:600;color:#fff;letter-spacing:0.08em;">LEARN</span>
+          <span class="proc-step">STEP 2</span>
+        </div>
+        <div class="proc-body">
+          <div class="proc-title">AX 리더십 워크숍</div>
+          <div class="proc-meta">4시간 오프라인 · 10~30명</div>
+          <ul class="proc-items">
+            <li>1부: AI 오해 깨기 (20분)</li>
+            <li>2부: 레벨별 업무 실습 (60분)</li>
+            <li>3부: AI 지시 언어 훈련 (50분)</li>
+            <li>4부: AX 로드맵 작성 (90분)</li>
+          </ul>
+          <div class="proc-highlight" style="background:var(--bg2);color:var(--ink3);">실습 비중 60% — 당일 AX 로드맵 초안 완성 후 퇴장</div>
+        </div>
+      </div>
+      <div class="proc-arrow">→</div>
+      <div class="proc-card">
+        <div class="proc-head" style="background:var(--teal);">
+          <span style="font-size:13px;font-weight:600;color:#fff;letter-spacing:0.08em;">PROVE</span>
+          <span class="proc-step">STEP 3</span>
+        </div>
+        <div class="proc-body">
+          <div class="proc-title">팀 역량 성장 리포트</div>
+          <div class="proc-meta">2주 후 · 재측정 + 보고서</div>
+          <ul class="proc-items">
+            <li>재진단으로 레벨 변화 측정</li>
+            <li>개인별 성장 점수 시각화</li>
+            <li>팀 평균 AI 역량 변화 리포트</li>
+            <li>HR → 경영진 보고용 PDF 제공</li>
+          </ul>
+          <div class="proc-highlight" style="background:var(--teal-l);color:var(--teal);">교육 ROI를 숫자로 증명 — HR 예산 집행 근거 자료</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 커리큘럼 -->
+  <section class="section">
+    <div class="s-header">
+      <div class="s-eyebrow">Curriculum</div>
+      <div class="s-title">워크숍 커리큘럼 — 4시간 상세</div>
+    </div>
+    <div class="curri-list">
+      <div class="curri-item">
+        <div class="curri-num" style="background:#1B2A4A;">1</div>
+        <div class="curri-content">
+          <div class="curri-title">AI 오해 깨기 — 리더의 눈높이로 다시 보기</div>
+          <div class="curri-desc">AI가 실제로 할 수 있는 것 / 없는 것. 반복/판단/창의 3분류 프레임 소개. 경쟁사 도입 사례 2~3개.</div>
+        </div>
+        <div class="curri-side">
+          <span class="c-time">20분</span>
+          <span class="c-type" style="background:#E8EEF5;color:#1B3A6B;">강의</span>
+        </div>
+      </div>
+      <div style="height:2px;"></div>
+      <div class="curri-item">
+        <div class="curri-num" style="background:#0B7A5E;">2</div>
+        <div class="curri-content">
+          <div class="curri-title">내 팀 업무 AI 분해 — 지금 당장 쓸 수 있는 것 찾기</div>
+          <div class="curri-desc">업무 분류 워크북 작성 후 Claude 직접 실습. 레벨별 트랙 분리 운영 (초급 L1~2 / 심화 L3~4).</div>
+        </div>
+        <div class="curri-side">
+          <span class="c-time">60분</span>
+          <span class="c-type" style="background:var(--teal-l);color:var(--teal);">실습</span>
+        </div>
+      </div>
+      <div style="height:2px;"></div>
+      <div class="curri-item">
+        <div class="curri-num" style="background:#0B7A5E;">3</div>
+        <div class="curri-content">
+          <div class="curri-title">AI 지시 언어 훈련 — 팀원에게 어떻게 시킬 것인가</div>
+          <div class="curri-desc">좋은 프롬프트 vs. 나쁜 프롬프트 비교 실습. 업무별 프롬프트 템플릿 10종 제공.</div>
+        </div>
+        <div class="curri-side">
+          <span class="c-time">50분</span>
+          <span class="c-type" style="background:var(--teal-l);color:var(--teal);">실습</span>
+        </div>
+      </div>
+      <div style="height:2px;"></div>
+      <div class="curri-item highlight">
+        <div class="curri-num" style="background:var(--purple);">4</div>
+        <div class="curri-content">
+          <div class="curri-title" style="color:var(--purple);">★ AX 로드맵 작성 — 오늘 만들어서 오늘 들고 나간다</div>
+          <div class="curri-desc">당월/3개월/6개월 팀 AX 전환 계획 직접 작성. 그룹 발표 + 피드백. 2주 후 팔로업 세션 30분 제공.</div>
+        </div>
+        <div class="curri-side">
+          <span class="c-time">90분</span>
+          <span class="c-type" style="background:var(--purple-l);color:var(--purple);">그룹 워크</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 레벨 체계 -->
+  <section class="section">
+    <div class="s-header">
+      <div class="s-eyebrow">Level System</div>
+      <div class="s-title">Grepp AI 역량 레벨 체계 (L1~L4)</div>
+    </div>
+    <div class="levels-wrap">
+      <div class="lvl">
+        <div class="lvl-top" style="background:#2C2C2C;">
+          <div class="lvl-badge">L1</div>
+          <div class="lvl-name">입문</div>
+        </div>
+        <div class="lvl-bar-bg"><div class="lvl-bar-fill" style="width:25%;background:#2C2C2C;"></div></div>
+        <div class="lvl-body">
+          <div class="lvl-who">AI를 거의 써본 적 없음</div>
+          <div class="lvl-desc">ChatGPT 계정은 있지만 업무에 안 씀. 프롬프트 개념 모름.</div>
+          <div class="lvl-goal-lbl">워크숍 목표</div>
+          <div class="lvl-goal">1개 반복 업무 자동화 성공 경험</div>
+        </div>
+      </div>
+      <div class="lvl">
+        <div class="lvl-top" style="background:#1B3A6B;">
+          <div class="lvl-badge">L2</div>
+          <div class="lvl-name">기초</div>
+        </div>
+        <div class="lvl-bar-bg"><div class="lvl-bar-fill" style="width:50%;background:#1B3A6B;"></div></div>
+        <div class="lvl-body">
+          <div class="lvl-who">가끔 쓰지만 단순 질답 수준</div>
+          <div class="lvl-desc">요약·번역은 씀. 역할 부여나 맥락 제공 개념 없음.</div>
+          <div class="lvl-goal-lbl">워크숍 목표</div>
+          <div class="lvl-goal">구조화 프롬프트로 업무 품질 향상</div>
+        </div>
+      </div>
+      <div class="lvl">
+        <div class="lvl-top" style="background:#0B7A5E;">
+          <div class="lvl-badge">L3</div>
+          <div class="lvl-name">활용</div>
+        </div>
+        <div class="lvl-bar-bg"><div class="lvl-bar-fill" style="width:75%;background:#0B7A5E;"></div></div>
+        <div class="lvl-body">
+          <div class="lvl-who">업무에 적극 활용 중</div>
+          <div class="lvl-desc">프롬프트 설계 가능. 결과 검증 및 팀 전파는 미흡.</div>
+          <div class="lvl-goal-lbl">워크숍 목표</div>
+          <div class="lvl-goal">팀 전파·지시 체계 설계</div>
+        </div>
+      </div>
+      <div class="lvl">
+        <div class="lvl-top" style="background:var(--purple);">
+          <div class="lvl-badge">L4</div>
+          <div class="lvl-name">선도</div>
+        </div>
+        <div class="lvl-bar-bg"><div class="lvl-bar-fill" style="width:100%;background:var(--purple);"></div></div>
+        <div class="lvl-body">
+          <div class="lvl-who">AI로 팀 성과를 만드는 수준</div>
+          <div class="lvl-desc">에이전트·자동화 워크플로우 설계. 팀 가이드 운영 중.</div>
+          <div class="lvl-goal-lbl">워크숍 목표</div>
+          <div class="lvl-goal">조직 AX 전환 전략 수립 리드</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 가격 -->
+  <section class="section">
+    <div class="s-header">
+      <div class="s-eyebrow">Pricing</div>
+      <div class="s-title">상품 구성 & 가격</div>
+    </div>
+    <div class="price-grid">
+      <div class="pc">
+        <div class="pc-head">
+          <div class="pc-plan">베이직</div>
+          <div><span class="pc-price">30만원</span><span class="pc-per">/ 인당</span></div>
+        </div>
+        <div class="pc-body">
+          <ul class="pc-items">
+            <li>사전 AI 역량 진단 (온라인 30분)</li>
+            <li>AX 리더십 워크숍 4시간</li>
+            <li>개인별 AI 레벨 리포트</li>
+            <li>업무 프롬프트 템플릿 10종</li>
+            <li>당일 AX 로드맵 초안</li>
+          </ul>
+        </div>
+        <div class="pc-note">10인 이상 단체 신청 시 15% 할인</div>
+      </div>
+      <div class="pc rec">
+        <div class="pc-rec-tag">추천</div>
+        <div class="pc-head">
+          <div class="pc-plan">스탠다드</div>
+          <div><span class="pc-price">45만원</span><span class="pc-per">/ 인당</span></div>
+        </div>
+        <div class="pc-body">
+          <ul class="pc-items">
+            <li>베이직 전체 포함</li>
+            <li>2주 후 재측정 (온라인)</li>
+            <li>팀 역량 성장 리포트 PDF</li>
+            <li>HR 경영진 보고용 대시보드</li>
+            <li>팔로업 세션 30분 (강사 Q&A)</li>
+          </ul>
+        </div>
+        <div class="pc-note" style="color:var(--purple);">Grepp 차별점이 극대화되는 패키지</div>
+      </div>
+      <div class="pc">
+        <div class="pc-head">
+          <div class="pc-plan" style="color:var(--teal);">엔터프라이즈</div>
+          <div><span class="pc-price">별도 협의</span></div>
+        </div>
+        <div class="pc-body">
+          <ul class="pc-items">
+            <li>전사 맞춤 커리큘럼 설계</li>
+            <li>분기별 역량 추적 & 리포트</li>
+            <li>부서별 맞춤 실습 시나리오</li>
+            <li>채용 연계 (프로그래머스 플랫폼)</li>
+            <li>전담 컨설턴트 배정</li>
+          </ul>
+        </div>
+        <div class="pc-note">50인 이상 · 연간 계약 가능</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 타임라인 -->
+  <section class="section">
+    <div class="s-header">
+      <div class="s-eyebrow">Launch Plan</div>
+      <div class="s-title">4주 출시 플랜</div>
+    </div>
+    <div class="tl-grid">
+      <div class="tl-col">
+        <div class="tl-top">
+          <div class="tl-wk" style="background:var(--purple);">W1</div>
+          <div class="tl-wk-label">WEEK 1</div>
+          <div class="tl-wk-title">기획 확정</div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-card-top" style="background:var(--purple);"></div>
+          <div class="tl-card-body">
+            <div class="tl-task">커리큘럼 상세 확정</div>
+            <div class="tl-task">강사 섭외 & 계약</div>
+            <div class="tl-task">AI 역량 진단 문항 설계</div>
+            <div class="tl-task">실습 도구 선정</div>
+          </div>
+        </div>
+      </div>
+      <div class="tl-col">
+        <div class="tl-top">
+          <div class="tl-wk" style="background:var(--purple);">W2</div>
+          <div class="tl-wk-label">WEEK 2</div>
+          <div class="tl-wk-title">콘텐츠 제작</div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-card-top" style="background:var(--purple);"></div>
+          <div class="tl-card-body">
+            <div class="tl-task">슬라이드 & 워크북 완성</div>
+            <div class="tl-task">프롬프트 템플릿 10종</div>
+            <div class="tl-task">리포트 템플릿 설계</div>
+            <div class="tl-task">강사 리허설 진행</div>
+          </div>
+        </div>
+      </div>
+      <div class="tl-col">
+        <div class="tl-top">
+          <div class="tl-wk" style="background:var(--teal);">W3</div>
+          <div class="tl-wk-label">WEEK 3</div>
+          <div class="tl-wk-title">파일럿 운영</div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-card-top" style="background:var(--teal);"></div>
+          <div class="tl-card-body">
+            <div class="tl-task">1개 기업 파일럿 실시</div>
+            <div class="tl-task">참가자 피드백 수집</div>
+            <div class="tl-task">커리큘럼 즉각 개선</div>
+            <div class="tl-task">리포트 템플릿 검증</div>
+          </div>
+        </div>
+      </div>
+      <div class="tl-col">
+        <div class="tl-top">
+          <div class="tl-wk" style="background:var(--teal);">W4</div>
+          <div class="tl-wk-label">WEEK 4</div>
+          <div class="tl-wk-title">정식 출시</div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-card-top" style="background:var(--teal);"></div>
+          <div class="tl-card-body">
+            <div class="tl-task">제안서 & 소개자료 배포</div>
+            <div class="tl-task">B2B 영업팀 브리핑</div>
+            <div class="tl-task">LinkedIn & 채널 홍보</div>
+            <div class="tl-task">첫 수강 기업 확정</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. 클로징 -->
+  <section class="section">
+    <div class="closing-wrap">
+      <div class="closing-top">
+        <div>
+          <div class="closing-quote">
+            "측정할 수 없으면<br><span>개선할 수 없다.</span>"
+          </div>
+          <div class="closing-source">— Peter Drucker</div>
+        </div>
+        <div class="closing-points">
+          <div class="closing-pt">
+            <div class="closing-pt-icon">📊</div>
+            <div class="closing-pt-text"><strong>다른 교육과 달리, 숫자로 증명합니다.</strong><br>진단→학습→재측정으로 성장을 데이터로 보여드립니다.</div>
+          </div>
+          <div class="closing-pt">
+            <div class="closing-pt-icon">⏱</div>
+            <div class="closing-pt-text"><strong>반나절 투자로 팀의 방향이 바뀝니다.</strong><br>당일 AX 로드맵을 완성해서 퇴장하는 유일한 과정.</div>
+          </div>
+          <div class="closing-pt">
+            <div class="closing-pt-icon">🚀</div>
+            <div class="closing-pt-text"><strong>4주 안에 첫 과정을 출시합니다.</strong><br>파일럿 신청 기업에 20% 할인 혜택 제공.</div>
+          </div>
+        </div>
+      </div>
+      <div class="closing-cta">
+        <div>
+          <div class="cta-text">지금 문의하면 파일럿 과정 20% 할인 혜택이 제공됩니다</div>
+          <div class="cta-sub">HR 예산 처리 · 세금계산서 발행 가능 · 단체 할인 별도 협의</div>
+        </div>
+        <div class="cta-contact">
+          Grepp 교육사업본부<br>education@grepp.com
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+</div>
+
+<div class="container">
+  <div class="site-footer">
+    <div class="site-footer-l">Grepp 교육사업본부 · 기업 제안서</div>
+    <div class="site-footer-r">CONFIDENTIAL · 2025</div>
+  </div>
+</div>
+
+</body>
+</html>
